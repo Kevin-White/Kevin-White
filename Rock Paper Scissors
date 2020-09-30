@@ -1,0 +1,90 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string player;
+    int compNum, playNum, rounds, compPoints, playPoints;
+    cout << "How many rounds would you like to play?" << endl;
+    playPoints = 0;
+    compPoints = 0;
+    cin >> rounds;
+    while(rounds > 0){
+    cout<<"Rock, Paper, or Scissors?"<<endl;
+    cin >> player;
+    compNum = rand() % 3;
+    if(player == "rock" || player == "Rock"){
+        playNum = 0; 
+        cout<<"You picked: Rock"<<endl;
+    }
+    else if(player == "paper" || player == "Paper"){
+        playNum = 1; 
+        cout<<"You picked: Paper"<<endl;
+    }
+    else if(player == "scissors" || player == "Scissors"){
+        playNum = 2; 
+        cout<<"You picked: Scissors"<<endl;
+    }
+    
+    if(compNum == 0){
+        cout<<"Computer picked: Rock"<<endl;
+        if(playNum == 0){
+            cout<<"You Tied"<<endl;
+        }
+        else if(playNum == 1){
+            cout<<"You Won"<<endl;
+            playPoints = playPoints + 1;
+            rounds = rounds - 1;
+        }
+        else{
+            cout<<"You Lost"<<endl;
+            compPoints = compPoints + 1;
+            rounds = rounds - 1;
+        }
+    }
+        if(compNum == 1){
+        cout<<"Computer picked: Paper"<<endl;
+        if(playNum == 1){
+            cout<<"You Tied"<<endl;
+        }
+        else if(playNum == 2){
+            cout<<"You Won"<<endl;
+            playPoints = playPoints + 1;
+            rounds = rounds - 1;
+        }
+        else{
+            cout<<"You Lost"<<endl;
+            compPoints = compPoints + 1;
+            rounds = rounds - 1;
+        }
+    }
+     if(compNum == 2){
+        cout<<"Computer picked: Scissors"<<endl;
+        if(playNum == 2){
+            cout<<"You Tied"<<endl;
+        }
+        else if(playNum == 0){
+            cout<<"You Won"<<endl;
+            playPoints = playPoints + 1;
+            rounds = rounds - 1;
+        }
+        else{
+            cout<<"You Lost"<<endl;
+            compPoints = compPoints + 1;
+            rounds = rounds - 1;
+        }
+    }
+    cout<<""<<endl;
+    }
+    if(compPoints > playPoints){
+        cout<<"Computer won the game with: "<<compPoints<<" points"<<endl;
+        cout<<"You lost the game with: "<<playPoints<<" points"<<endl;
+    }
+    else if(compPoints < playPoints){
+        cout<<"You won the game with: "<<playPoints<<" points"<<endl;
+        cout<<"Computer lost the game with: "<<compPoints<<" points"<<endl;
+    }
+    else{
+        cout<<"You and the computer tied the game, you both had "<<playPoints<<" points"<<endl;
+    }
+}

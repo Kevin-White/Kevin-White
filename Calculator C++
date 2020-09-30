@@ -1,0 +1,60 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int
+main ()
+{
+  float x, z, power;
+  float answer;
+  string y;
+  cout << "Calculator ready, give me an equation:" << endl;
+  while (true)
+    {
+      cin >> x >> y >> z;
+      if (y == "+")
+	{
+	  answer = x + z;
+	}
+      if (y == "-")
+	{
+	  answer = x - z;
+	}
+      if (y == "*")
+	{
+	  answer = x * z;
+	}
+      if (y == "/")
+	{
+	  answer = x / z;
+	}
+      if (y == "^")
+	{
+	  power = x;
+	  while (z > 1)
+	    {
+	      x = x * power;
+	      z = z - 1;
+	    }
+	  answer = x;
+	}
+      if (y == "sqrt")
+	{
+	  answer = x * sqrt(z);
+	}
+      if (y == "sin")
+	{
+	  answer = x * sin(z);
+	}
+      if (y == "cos")
+	{
+	  answer = x * cos(z);
+	}
+	if (y == "tan")
+	{
+	  answer = x * tan(z);
+	}
+      cout << "= " << answer << endl;
+    }
+  return 0;
+}
